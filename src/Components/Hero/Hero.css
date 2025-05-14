@@ -41,17 +41,53 @@
   cursor: pointer;
 }
 .hero-resume {
+  text-decoration: none;
+  background-color: #007bff;
+  color: white;
+  background: linear-gradient(264deg, #df8908 -5.09%, #b415ff 106%);
+  padding: 20px;
+  border-radius: 50px;
+  display: inline-block;
+  transition: background-color 0.3s;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+/* .hero-resume {
   padding: 25px;
   border-radius: 50px;
-  /* background: linear-gradient(264deg, #df8908 -5.09%, #b415ff 106%); */
+  background: linear-gradient(264deg, #df8908 -5.09%, #b415ff 106%);
   cursor: pointer;
   border: 2px solid #fff;
+} */
+/* .Non-IT {
+  padding: 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 2px solid #fff;
+} */
+.Non-IT {
+  text-decoration: none;
+  background-color: #007bff;
+  color: white;
+  background: linear-gradient(264deg, #df8908 -5.09%, #b415ff 106%);
+  padding: 20px;
+  border-radius: 50px;
+  display: inline-block;
+  transition: background-color 0.3s;
+  transform: scale(1.1);
+  cursor: pointer;
 }
+
+.Non-IT:hover {
+  border: 2px solid white;
+}
+
 .hero-connect:hover {
   border: 2px solid white;
 }
 .hero-resume:hover {
-  border-color: #b415ff;
+  /* border-color: #b415ff; */
+  border: 2px solid white;
 }
 @media (max-width: 768px) {
   .hero img {
