@@ -148,3 +148,14 @@
     padding: 15px 40px;
   }
 }
+.contact { max-width: 1400px; margin: 80px auto; padding: 0 6%; }
+.contact-section { width: 100%; justify-content: space-between; gap: 64px; }
+.contact-right { width: min(100%, 620px); }
+.contact-right input, .contact-right textarea { box-sizing: border-box; width: 100%; }
+.contact-right textarea { min-height: 180px; }
+.contact-left h2 { font-size: 68px; font-weight: 700; background: linear-gradient(270deg, #df8908 80%, #b415ff 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.contact-detail a, .contact-socials a { color: #d8d8d8; text-decoration: none; }
+.contact-detail a:hover, .contact-socials a:hover { color: #f2a34a; }
+.contact-socials { display: flex; gap: 24px; font-size: 18px; }
+.contact-status { min-height: 1.5em; color: #d8d8d8; }
+@media (max-width: 768px) { .contact { margin: 55px auto; padding: 0 24px; } .contact-section { gap: 40px; } .contact-right { width: 100%; } .contact-right input, .contact-right textarea { width: 100%; } .contact-right textarea { padding: 16px; } .contact-title h1 { font-size: 42px; padding: 0; } .contact-left h2 { font-size: 48px; } }

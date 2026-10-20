@@ -1,10 +1,23 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+html { scroll-behavior: smooth; }
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: #161513;
   color: white;
   font-family: "Outfit", sans-serif;
+}
+.hero-eyebrow { color: #f2a34a; font-size: 16px !important; letter-spacing: .16em; font-weight: 600; }
+.hero-summary { max-width: 760px; }
+@media (max-width: 600px) {
+  .hero { padding: 0 24px; gap: 20px; }
+  .hero img { width: min(260px, 80vw) !important; margin-top: 45px; }
+  .hero h1 { width: 100%; font-size: clamp(38px, 10vw, 52px); }
+  .hero p { width: 100%; font-size: 17px; line-height: 1.6; }
+  .hero .hero-eyebrow { font-size: 12px !important; }
+  .hero-action { flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 16px; }
+  .hero-connect, .hero-resume, .Non-IT { padding: 14px 20px; transform: none; }
 }

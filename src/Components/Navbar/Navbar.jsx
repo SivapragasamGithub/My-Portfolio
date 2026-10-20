@@ -1,39 +1,77 @@
-import React, { useRef, useState } from 'react'
-import './Navbar.css'
-import logo from '../../assets/logo1.svg'
-import underline from '../../assets/nav_underline.svg'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
-import menu_open from '../../assets/menu_open.svg'
-import menu_close from '../../assets/menu_close.svg'
+import React, { useState } from "react";
 
+const links = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#work" },
+  { label: "Toolkit", href: "#services" },
+  { label: "Experience", href: "#experience" },
+];
 
-const Navbar = () => {
+const Navbar = ({ theme, onThemeToggle }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("#home");
 
-    const [menu, setMenu] = useState("contact");
-    const menuRef = useRef();
+  const closeMenu = (href) => {
+    setActiveLink(href);
+    setMenuOpen(false);
+  };
 
-    const openMenu = () => {
-        menuRef.current.style.right = "0";
-    }
-    const closeMenu = () => {
-        menuRef.current.style.right = "-350px";
-    }
+  return (
+    <header className="site-header">
+      <a
+        className="brand"
+        href="#home"
+        onClick={() => closeMenu("#home")}
+        aria-label="Sivapragasam home"
+      >
+        <span className="brand-mark">SA</span>
+        <span className="brand-name">
+          Sivapragasam<span className="brand-dot">.</span>
+        </span>
+      </a>
+      <button
+        className="mobile-menu-toggle"
+        type="button"
+        aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        <span></span>
+        <span></span>
+      </button>
+      <nav
+        className={`main-nav ${menuOpen ? "is-open" : ""}`}
+        aria-label="Main navigation"
+      >
+        {links.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className={activeLink === link.href ? "is-active" : ""}
+            onClick={() => closeMenu(link.href)}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+      <div className="header-actions">
+        <button
+          className="theme-toggle"
+          type="button"
+          aria-label={
+            theme === "light" ? "Switch to dark theme" : "Switch to light theme"
+          }
+          title="Switch theme"
+          onClick={onThemeToggle}
+        >
+          <span aria-hidden="true">{theme === "light" ? "◐" : "☼"}</span>
+        </button>
+        <a className="header-cta" href="#contact">
+          Let’s talk <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </header>
+  );
+};
 
-    return (
-        <div className='navbar' >
-            <img src={logo} alt="" style={{ width: "100px", height: "100px" }} />
-            <img src={menu_open} onClick={openMenu} alt="" className='nav-mob-open' />
-            <ul ref={menuRef} className="nav-menu">
-                <img src={menu_close} onClick={closeMenu} alt="" className="nav-mob-close" />
-                <li><AnchorLink className='anchor-link' href='#home'><p onClick={() => setMenu("home")}>Home</p></AnchorLink>{menu === "home" ? <img src={underline} alt="" /> : <> </>}</li>
-                <li><AnchorLink className='anchor-link' offset={50} href='#about'><p onClick={() => setMenu("about")}>About Me</p></AnchorLink>{menu === "about" ? <img src={underline} alt="" /> : <> </>}</li>
-                <li><AnchorLink className='anchor-link' offset={50} href='#services'><p onClick={() => setMenu("services")}>Services</p></AnchorLink>{menu === "services" ? <img src={underline} alt="" /> : <> </>}</li>
-                <li><AnchorLink className='anchor-link' offset={50} href='#work'><p onClick={() => setMenu("work")}>Portfolio</p></AnchorLink>{menu === "work" ? <img src={underline} alt="" /> : <> </>}</li>
-                <li><AnchorLink className='anchor-link' offset={50} href='#contact'><p onClick={() => setMenu("contact")}>Contact</p></AnchorLink>{menu === "contact" ? <img src={underline} alt="" /> : <> </>}</li>
-            </ul>
-            <div className="nav-connect"><AnchorLink className='anchor-link' offset={50} href='#contact'> Connect With Me </AnchorLink></div>
-        </div>
-    )
-}
-
-export default Navbar
+export default Navbar;

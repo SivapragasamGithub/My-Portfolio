@@ -50,9 +50,11 @@
   gap: 50px;
   margin-bottom: 50px;
 }
+.footer-botom-right a { color: #d8d8d8; text-decoration: none; }
 .footer-email-input:hover {
   border: 2px solid white;
 }
+@media (max-width: 768px) { .footer { margin: 40px 24px; } .footer-botom-right { flex-wrap: wrap; gap: 20px; } .footer-bottom { gap: 16px; font-size: 15px; } }
 .footer-subscribe:hover {
   transform: scale(1.1);
   transition: 0.3s;

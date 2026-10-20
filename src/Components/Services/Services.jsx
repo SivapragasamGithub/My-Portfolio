@@ -1,31 +1,16 @@
 import React from 'react'
-import './Services.css'
-import theme_pattern from '../../assets/theme_pattern.svg'
 import Services_Data from '../../assets/services_data'
-import arrow_icon from '../../assets/arrow_icon.svg'
 
-const Services = () => {
-    return (
-        <div id='services' className='services' >
-            <div className="services-title">
-                <h1>My Services</h1>
-                <img src={theme_pattern} alt="" />
-            </div>
-            <div className="services-container">
-                {Services_Data.map((service, index) => {
-                    return <div key={index} className="services-format">
-                        <h3>{service.s_no}</h3>
-                        <h2>{service.s_name} </h2>
-                        <p>{service.s_desc} </p>
-                        <div className='services-readmore' >
-                            <p>Read More</p>
-                            <img src={arrow_icon} alt="" />
-                        </div>
-                    </div>
-                })}
-            </div>
+const Services = () => (
+    <section className="section-wrap skills-section" id="services">
+        <div className="section-heading"><p className="eyebrow">03 <span className="eyebrow-sep">/</span> TOOLKIT</p><h2>My day-to-day<br /><span className="heading-accent">building blocks.</span></h2></div>
+        <div className="skills-grid">
+            {Services_Data.map((group) => <article className="skill-group" key={group.label}>
+                <span className="skill-index">{group.index}</span>
+                <div><h3>{group.label}</h3><p>{group.skills}</p></div>
+            </article>)}
         </div>
-    )
-}
+    </section>
+)
 
 export default Services

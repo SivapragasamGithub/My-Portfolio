@@ -101,3 +101,5 @@
     gap: 30px;
   }
 }
+@media (max-width: 900px) { .services-container { grid-template-columns: 1fr 1fr; } .services { margin-left: 6%; margin-right: 6%; } }
+@media (max-width: 600px) { .services { margin: 55px 24px; gap: 35px; } .services-title h1 { font-size: 42px; padding: 0; } .services-container { grid-template-columns: 1fr; gap: 16px; } .services-format { padding: 24px; } .services-format h2 { font-size: 25px; } .services-format p { max-width: none; } }
